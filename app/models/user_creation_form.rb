@@ -1,0 +1,2 @@
+class UserCreationForm < ApplicationRecord
+end

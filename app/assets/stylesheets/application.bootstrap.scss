@@ -1,0 +1,36 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400&family=Syne&display=swap');
+body{
+  background-color: #F9F8F9;
+  background-color: #300D38;
+  color: #fff;
+  font-family: 'Syne', sans-serif;
+  font-family:'Lexend', sans-serif;
+}
+
+.btn {
+  background-color: #FFA900;
+  color: #300D38;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #300D38;
+  border: none;
+  color: #fff;
+}
+
+.hero-image {
+  background-image: url("https://asset.brandfetch.io/id7Cm60rQf/idetOx4h9a.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 75px;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
