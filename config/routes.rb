@@ -1,17 +1,13 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get 'user_forms/index'
+      post 'user_forms/create'
+      get '/show/:id', to: 'user_forms#show'
+      delete '/destroy/:id', to: 'user_forms#destroy'
+      
+    end
+  end
   root 'home#index'
-  # namespace :api do
-  #   namespace :v1 do
-  #     resources :occupations
-  #     resources :states
-  #     resources :user_creation_forms
-  #   end
-  # end
-
-  # get ‘/state’, to: 'state#get_state'
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get '/*path' => 'home#index'
 end
