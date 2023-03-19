@@ -17,12 +17,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  host: <%= ENV['POSTGRES_HOST'] %>
-  port: 5432
+  # username: <%= ENV['POSTGRES_USER'] %>
+  # password: <%= ENV['POSTGRES_PASSWORD'] %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # timeout: 5000
+  # host: <%= ENV['POSTGRES_HOST'] %>
+  # port: 5432
 
 
 
@@ -85,8 +85,8 @@ test:
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+  # production:
+  #   url: <%= ENV["MY_APP_DATABASE_URL"] %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
@@ -97,5 +97,5 @@ production:
   adapter: postgresql
   url:  <%= ENV["DATABASE_URL"] %>
   pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
-  username: rails_react_user_form
-  password: <%= ENV["RAILS_REACT_USER_FORM_DATABASE_PASSWORD"] %>
+  # username: rails_react_user_form
+  # password: <%= ENV["RAILS_REACT_USER_FORM_DATABASE_PASSWORD"] %>

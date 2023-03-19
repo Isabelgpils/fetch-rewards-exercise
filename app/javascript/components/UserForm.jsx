@@ -29,7 +29,7 @@ export default function UserCreateForm() {
     reset();
       
     axios
-    .post('https://frontend-take-home.fetchrewards.com/form', userData) 
+    .post('/api/v1/user_forms/create', userData) 
     .then((response) => {
         (response.data);
     })
