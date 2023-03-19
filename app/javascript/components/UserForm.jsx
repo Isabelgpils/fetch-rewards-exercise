@@ -47,8 +47,7 @@ export default function UserCreateForm() {
     })
 
     axios
-    .post('http://localhost:3000/api/v1/user_forms/create', userData)
-      headers: headers   
+    .post('https://fetch-exercise.herokuapp.com/UserForm', userData, {headers: headers})
     .then((response) => {
       (response.data);
     })
