@@ -29,7 +29,7 @@ export default function UserCreateForm() {
     reset();
       
     axios
-    .post('/api/v1/user_forms/create', userData) 
+    .post("https://frontend-take-home.fetchrewards.com/form", userData) 
     .then((response) => {
         (response.data);
     })
@@ -47,7 +47,7 @@ export default function UserCreateForm() {
     })
 
     axios
-    .post('https://fetch-exercise.herokuapp.com', userData, {headers: headers})
+    .post("/api/v1/user_forms/create", userData, {headers: headers})
     .then((response) => {
       (response.data);
     })
