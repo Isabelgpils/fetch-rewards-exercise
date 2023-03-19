@@ -1,2 +1,0 @@
-class UserCreationForm < ApplicationRecord
-end

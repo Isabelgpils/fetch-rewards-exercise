@@ -1,8 +1,8 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400&family=Syne&display=swap');
+
 body{
-  background-color: #F9F8F9;
   background-color: #300D38;
   color: #fff;
   font-family: 'Syne', sans-serif;
@@ -11,23 +11,31 @@ body{
 
 .btn {
   background-color: #FFA900;
-  color: #300D38;
   border: none;
+  color: #300D38;
 }
 
 .btn:hover {
-  background-color: #300D38;
+  background-color: #F9F8F9;
   border: none;
-  color: #fff;
+  color: #300D38;
 }
 
-.hero-image {
-  background-image: url("https://asset.brandfetch.io/id7Cm60rQf/idetOx4h9a.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 75px;
-  height: 75px;
+#trademark{
+  font-size: 24px;
+  font-weight: 100;
+  vertical-align: middle;
+}
+
+.hero {
+  width: 100vw;
+  height: 50vh;
+}
+.hero img {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
 }
 .overlay {
   height: 100%;
