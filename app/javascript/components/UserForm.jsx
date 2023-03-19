@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import SuccessMessage from "./SuccessMessage";
 
 export default function UserCreateForm() {
   const [successMessage, setSuccessMessage] = useState("");
@@ -59,14 +60,14 @@ export default function UserCreateForm() {
   return(
     <div className="container">
       <div className="mt-3">
-        <h5 className="display-5 text-center mt-5 pb-5">Sign Up</h5>
+        <h5 className="display-5 text-center mt-3 pb-3">Sign Up</h5>
         <div className="row">
           <div className="col-lg-6 col-sm-12 mx-auto">
             
             <form onSubmit={handleSubmit(onSubmit)}>
               {successMessage && <strong className="alert alert-success mb-5 float-center" role="alert">{successMessage}</strong>} 
 
-              <div className="pb-5 pt-5">
+              <div className="pb-3 pt-5">
                 <label className="form-label">Full Name</label>
                 <input
                     className="form-control"
@@ -79,7 +80,7 @@ export default function UserCreateForm() {
                     onChange={e => setName(e.target.value)}
                 />
               </div>
-              <div className="pb-5">
+              <div className="pb-3">
                 <label className="form-label">Email</label>
                 <input
                     className="form-control"
@@ -93,7 +94,7 @@ export default function UserCreateForm() {
                 />
               </div>
 
-              <div className="pb-5">
+              <div className="pb-3">
                 <label className="form-label">Password</label>
                 <input
                     className="form-control"
@@ -108,7 +109,7 @@ export default function UserCreateForm() {
                 />
               </div>
 
-              <div className="pb-5">
+              <div className="pb-3">
                 <label className="form-label">Occupation</label>
                   <select 
                     className="form-select"
@@ -128,7 +129,7 @@ export default function UserCreateForm() {
                 </select>
               </div>
               
-              <div className="pb-5">
+              <div className="pb-3">
                 <label className="form-label">State</label>
                 <select
                     className="form-select"
@@ -152,6 +153,7 @@ export default function UserCreateForm() {
             
               <button type="submit" className="btn sign-up-button mt-3">
                 Submit
+                <SuccessMessage />
               </button>
             </form>
           </div>
