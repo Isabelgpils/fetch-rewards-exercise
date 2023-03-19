@@ -36,7 +36,11 @@ class Api::V1::UserFormsController < ApplicationController
   private
 
   def user_form_params
-    params.permit(:name, :email, :password, :occupation, :state)
+    params.require(:user_form).permit(:name, :email, :password, :occupation, :state)
+  end
+
+  def render_unpermitted_params_response
+    render json: { "Unpermitted Parameters": params.to_unsafe_h.except(:controller, :action, :id, :name, :password, :occupation, :state).keys }, status: :unprocessable_entity
   end
 end
 
