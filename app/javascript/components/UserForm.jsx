@@ -23,14 +23,14 @@ export default function UserForm() {
     setSuccessMessage("You have successfully signed up!");
     reset();
       
-    // axios
-    // .post("https://frontend-take-home.fetchrewards.com/form", userData) 
-    // .then((response) => {
-    //     (response.data);
-    // })
-    // .catch((error)=> {
-    //     console.log(error.response.data)
-    // })
+    axios
+    .post("https://frontend-take-home.fetchrewards.com/form", userData) 
+    .then((response) => {
+        (response.data);
+    })
+    .catch((error)=> {
+        console.log(error.response.data)
+    })
     
     const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
     const headers = axios.create({
