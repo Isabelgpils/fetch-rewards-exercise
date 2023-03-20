@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import SuccessMessage from "./SuccessMessage";
 
 export default function UserCreateForm() {
   const [successMessage, setSuccessMessage] = useState("");
@@ -153,7 +152,6 @@ export default function UserCreateForm() {
             
               <button type="submit" className="btn sign-up-button mt-3">
                 Submit
-                <SuccessMessage />
               </button>
             </form>
           </div>
