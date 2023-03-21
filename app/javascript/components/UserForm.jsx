@@ -90,7 +90,7 @@ export default function UserForm() {
                     placeholder="password must be at least 6 characters"
                     // required
                     name="password"
-                    {...register("password", {required: true, minLength: 6 })}
+                    {...register("password", {required: true})}
                     // onChange={e => setPassword(e.target.value)}
                 />
               </div>
