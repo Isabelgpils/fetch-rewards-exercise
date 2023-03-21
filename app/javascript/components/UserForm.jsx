@@ -57,7 +57,7 @@ export default function UserForm() {
 
               <div className="pb-3 pt-5">
                 <label className="form-label">Full Name</label>
-                <input {...register("name"), {required: true}}
+                <input {...register("name", {required: true})}
                   className="form-control"
                   type="text"
                   placeholder="Please enter first and last name"
