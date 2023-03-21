@@ -85,10 +85,9 @@ export default function UserForm() {
                   <input 
                     className="form-control"
                     type="password"
-                    value={password}
-                    // minLength="6"
+                    minLength="6"
                     placeholder="password must be at least 6 characters"
-                    // required
+                    required
                     name="password"
                     {...register("password", {required: true})}
                     // onChange={e => setPassword(e.target.value)}
@@ -100,7 +99,7 @@ export default function UserForm() {
                   <select
                     className="form-select"
                     type="select"
-                    value={occupation}
+                    // value={occupation}
                     // required
                     name="occupation"
                     // placeholder= "Please Select Occupation"
@@ -122,7 +121,7 @@ export default function UserForm() {
                 <select
                     className="form-select"
                     type="text"
-                    value={state}
+                    // value={state}
                     // required
                     name="state"
                     {...register("state", {required: true})}
