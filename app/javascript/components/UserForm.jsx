@@ -72,16 +72,17 @@ export default function UserForm() {
                   type="email"
                   placeholder="Please enter a valid email address"
                   {...register("email", 
-                  {required: true, 
-                    pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Please Enter A Valid Email!"}
-                  })}
+                    {required: true, 
+                      pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Please Enter A Valid Email!"}
+                    } 
+                  )}
                 />
               </div>
 
               <div className="pb-3">
                 <label className="form-label">Password</label>
-                  <input {...register("password"), {required: "Please Enter Your Password", minLength: {value: 8, message: "Password must be at least 8 characters long!"}}}
+                  <input 
                     className="form-control"
                     type="password"
                     value={password}
@@ -90,14 +91,13 @@ export default function UserForm() {
                     // required
                     name="password"
                     {...register("password", {required: true, minLength: 6 })}
-
                     // onChange={e => setPassword(e.target.value)}
                 />
               </div>
 
               <div className="pb-3">
                 <label className="form-label">Occupation</label>
-                  <select {...register("occupation"), {required: true, placeholder: "Please Select Occupation"}}
+                  <select
                     className="form-select"
                     type="select"
                     value={occupation}
@@ -122,7 +122,6 @@ export default function UserForm() {
                 <select
                     className="form-select"
                     type="text"
-                    id="state"
                     value={state}
                     // required
                     name="state"
