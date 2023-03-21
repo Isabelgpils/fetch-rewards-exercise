@@ -23,14 +23,14 @@ export default function UserForm() {
     setSuccessMessage("You have successfully signed up!");
     reset();
       
-    axios
-    .post("https://frontend-take-home.fetchrewards.com/form", userData) 
-    .then((response) => {
-        (response.data);
-    })
-    .catch((error)=> {
-        console.log(error.response.data)
-    })
+    // axios
+    // .post("https://frontend-take-home.fetchrewards.com/form", userData) 
+    // .then((response) => {
+    //     (response.data);
+    // })
+    // .catch((error)=> {
+    //     console.log(error.response.data)
+    // })
     
     const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
     const headers = axios.create({
@@ -61,19 +61,21 @@ export default function UserForm() {
                   className="form-control"
                   type="text"
                   placeholder="Please enter first and last name"
+                  {...register("name", {required: true})}
                 />
               </div>
 
               <div className="pb-3">
                 <label className="form-label">Email</label>
-                <input {...register("email"), 
-                  {required: true, 
-                    pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Please Enter A Valid Email!"}
-                  }}
+                <input 
                   className="form-control"
                   type="email"
                   placeholder="Please enter a valid email address"
+                  {...register("email", 
+                  {required: true, 
+                    pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Please Enter A Valid Email!"}
+                  })}
                 />
               </div>
 
@@ -82,8 +84,15 @@ export default function UserForm() {
                   <input {...register("password"), {required: "Please Enter Your Password", minLength: {value: 8, message: "Password must be at least 8 characters long!"}}}
                     className="form-control"
                     type="password"
-                    placeholder="Password must be at least 8 characters long"
-                  />
+                    value={password}
+                    // minLength="6"
+                    placeholder="password must be at least 6 characters"
+                    // required
+                    name="password"
+                    {...register("password", {required: true, minLength: 6 })}
+
+                    // onChange={e => setPassword(e.target.value)}
+                />
               </div>
 
               <div className="pb-3">
@@ -91,23 +100,39 @@ export default function UserForm() {
                   <select {...register("occupation"), {required: true, placeholder: "Please Select Occupation"}}
                     className="form-select"
                     type="select"
+                    value={occupation}
+                    // required
+                    name="occupation"
+                    // placeholder= "Please Select Occupation"
+                    {...register("occupation", {required: true})} 
+
+                    // onChange={e => setOccupation(e.target.value)}
                   >
-                  {occupations.map((occupation) => (
-                    <option key={occupation} value={occupation}>
-                      {occupation}
-                    </option>
+                    {/* <option>Please Select Occupation</option> */}
+                    {occupations.map((occupation) => (
+                      <option key={occupation} value={occupation} placeholder= "Please select occupation">
+                        {occupation}
+                      </option>
                   ))}
                 </select>
               </div>
               
               <div className="pb-3">
                 <label className="form-label">State</label>
-                <select {...register("state"), {required: true, placeholder: "Please Select State"}}
-                  className="form-select"
-                  type="select"
+                <select
+                    className="form-select"
+                    type="text"
+                    id="state"
+                    value={state}
+                    // required
+                    name="state"
+                    {...register("state", {required: true})}
+                    // onChange={e => setState(e.target.value)}
+
                 >
+                  {/* <option>Please Select State</option> */}
                   {states.map((state) => (
-                    <option key={state.name} value={state.name} >
+                    <option key={state.name} value={state.name} placeholder="Please Select State" >
                       {state.name}
                     </option>
                   ))}
