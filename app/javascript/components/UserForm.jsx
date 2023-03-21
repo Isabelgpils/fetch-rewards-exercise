@@ -6,12 +6,13 @@ export default function UserCreateForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [states, setStates] = useState([]);
   const [occupations, setOccupations] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [state, setState] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const { register, reset, handleSubmit } = useForm();
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [state, setState] = useState("");
+  // const [occupation, setOccupation] = useState("");
+  const { register, reset, handleSubmit, getResults } = useForm();
+  const [name, email, password, state, occupation] = getResults("name", "email", "password", "state", "occupation")
  
  
   useEffect(() => {
@@ -24,18 +25,19 @@ export default function UserCreateForm() {
   }, []);
 
   const onSubmit = async () => {     
-    const userData = {name, email, password, state, occupation}
+    // const userData = {name, email, password, state, occupation}
+    const userData = getResults(["name", "email", "password", "state", "occupation"]);
     setSuccessMessage("You have successfully signed up!");
     reset();
       
-    axios
-    .post("https://frontend-take-home.fetchrewards.com/form", userData) 
-    .then((response) => {
-        (response.data);
-    })
-    .catch((error)=> {
-        console.log(error.response.data)
-    })
+    // axios
+    // .post("https://frontend-take-home.fetchrewards.com/form", userData) 
+    // .then((response) => {
+    //     (response.data);
+    // })
+    // .catch((error)=> {
+    //     console.log(error.response.data)
+    // })
     
     const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
     const headers = axios.create({
@@ -72,24 +74,26 @@ export default function UserCreateForm() {
                     className="form-control"
                     type="text"
                     value={name}
-                    required
-                    placeholder="Please enter first and last name"
-                    {...register("name")}
                     name="name"
-                    onChange={e => setName(e.target.value)}
+                    // required
+                    placeholder="Please enter full name"
+                    {...register("name", {required: true})}
+                    // onChange={e => setName(e.target.value)}
                 />
               </div>
+
               <div className="pb-5">
                 <label className="form-label">Email</label>
                 <input
                     className="form-control"
                     type="email"
                     value={email}
-                    required
-                    placeholder="Please enter a valid email address"
-                    {...register("email")}
+                    // required
                     name="email"
-                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Please enter a valid email address"
+                    {...register("email", {required: "Please enter a valid email address"})}
+
+                    // onChange={e => setEmail(e.target.value)}
                 />
               </div>
 
@@ -99,12 +103,13 @@ export default function UserCreateForm() {
                     className="form-control"
                     type="password"
                     value={password}
-                    minLength="6"
+                    // minLength="6"
                     placeholder="password must be at least 6 characters"
-                    required
-                    {...register("password")}
+                    // required
                     name="password"
-                    onChange={e => setPassword(e.target.value)}
+                    {...register("password", {required: true, minLength: 6 })}
+
+                    // onChange={e => setPassword(e.target.value)}
                 />
               </div>
 
@@ -114,14 +119,16 @@ export default function UserCreateForm() {
                     className="form-select"
                     type="select"
                     value={occupation}
-                    required
-                    {...register("occupation")}
+                    // required
                     name="occupation"
-                    onChange={e => setOccupation(e.target.value)}
+                    // placeholder= "Please Select Occupation"
+                    {...register("occupation", {required: true})} 
+
+                    // onChange={e => setOccupation(e.target.value)}
                   >
-                    <option>Please Select Occupation</option>
+                    {/* <option>Please Select Occupation</option> */}
                     {occupations.map((occupation) => (
-                      <option key={occupation} value={occupation}>
+                      <option key={occupation} value={occupation} placeholder= "Please select occupation">
                         {occupation}
                       </option>
                   ))}
@@ -135,15 +142,15 @@ export default function UserCreateForm() {
                     type="text"
                     id="state"
                     value={state}
-                    required
-                    {...register("state")}
+                    // required
                     name="state"
-                    onChange={e => setState(e.target.value)}
+                    {...register("state", {required: true})}
+                    // onChange={e => setState(e.target.value)}
 
                 >
-                  <option>Please Select State</option>
+                  {/* <option>Please Select State</option> */}
                   {states.map((state) => (
-                    <option key={state.name} value={state.name} >
+                    <option key={state.name} value={state.name} placeholder="Please Select State" >
                       {state.name}
                     </option>
                   ))}
