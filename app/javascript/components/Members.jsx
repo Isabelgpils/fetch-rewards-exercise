@@ -14,30 +14,30 @@ const Members = () => {
 
     const allMembers = members.map((user, index) => (
     <div key={index} className="col-md-6 col-lg-4">
-      <div className="card mb-4">
+      <div className="card mb-3">
         <div className="card-body">
-            <h5 className="card-title">{user.occupation}</h5>
             <h5 className="card-title">{user.state}</h5>
+            <h6 className="card-title">{user.occupation}</h6>
         </div>
       </div>
     </div>
   ));
   
   return (
-    <>
+    <main>
       <div className="jumbotron jumbotron-fluid text-center">
         <div className="container py-5">
-          <h1 className="display-4">Member Distribution and Occupation</h1>
+          <heading className="display-6">Member State Distribution and Occupation</heading>
         </div>
       </div>
-      <div className="py-5">
+      <div className="pt-5">
         <div className="container">
             <div className="row">
                 {allMembers}
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 };
 
