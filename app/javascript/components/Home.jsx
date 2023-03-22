@@ -10,14 +10,14 @@ function Home(){
           <p className="lead">Have Fun. Save Money.&reg; </p>
           <hr className="my-4" />
           <Link
-          to="/UserForm"
-          className="btn btn-lg custom-button"
-          role="button"
-        >
-          Sign Up
-        </Link>
+            to="/UserForm"
+            className="btn btn-lg custom-button"
+            role="button"
+          >
+            Sign Up
+          </Link>
+        </div>
       </div>
-    </div>
     </div>
   );
 }

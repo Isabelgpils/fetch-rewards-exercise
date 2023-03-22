@@ -4,4 +4,5 @@ class UserForm < ApplicationRecord
     validates :password, presence: true
     validates :occupation, presence: true
     validates :state, presence: true
+    default_scope {order( :state, :occupation) }
 end

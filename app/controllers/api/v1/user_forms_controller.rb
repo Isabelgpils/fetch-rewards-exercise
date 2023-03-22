@@ -1,12 +1,12 @@
 class Api::V1::UserFormsController < ApplicationController
 
   def index
-    @user_form = UserForm.all
+    user_forms = UserForm.all
     render json: user_forms
   end
   
   def show
-    render json: @user_form
+    render json: user_form
   end
  
   def create
@@ -21,15 +21,15 @@ class Api::V1::UserFormsController < ApplicationController
   end
   
   def update
-    if @user_form.update(user_form_params)  
-      render json: @user_form     
+    if user_form.update(user_form_params)  
+      render json: user_form     
     else
-      render json: @user_form.errors
+      render json: user_form.errors
     end 
   end 
 
   def destroy
-    @user_form.destroy
+    user_form.destroy
     render json: { message: 'User Form deleted successfully' }
   end
 
@@ -43,4 +43,3 @@ class Api::V1::UserFormsController < ApplicationController
     render json: { "Unpermitted Parameters": params.to_unsafe_h.except(:controller, :action, :id, :name, :password, :occupation, :state).keys }, status: :unprocessable_entity
   end
 end
-
