@@ -29,21 +29,24 @@ export default function UserForm() {
     navigate("/Success")
     reset();
       
-    axios
-    .post("https://frontend-take-home.fetchrewards.com/form", userData) 
-    .then((response) => {
-        (response.data);
-    })
-    .catch((error)=> {
-        console.log(error.response.data)
-    })
+    // axios
+    // .post("https://frontend-take-home.fetchrewards.com/form", userData) 
+    // .then((response) => {
+    //     (response.data);
+    // })
+    // .catch((error)=> {
+    //     console.log(error.response.data)
+    // })
     
-    const token = document.querySelector('[name="csrf-token"]') 
+
+    const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
     const headers = axios.create({
       headers: {common: {'X-CSRF-Token': token.content}}
     })
     axios
-    .post("/api/v1/user_forms/create", userData, {headers: headers})
+    .post("/api/v1/user_forms/create", userData, 
+      {headers: headers}
+    )
     .then((response) => {
       (response.data);
     })
