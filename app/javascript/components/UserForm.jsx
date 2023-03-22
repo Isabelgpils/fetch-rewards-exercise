@@ -38,7 +38,7 @@ export default function UserForm() {
         console.log(error.response.data)
     })
     
-    const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
+    const token = document.querySelector('[name="csrf-token"]') 
     const headers = axios.create({
       headers: {common: {'X-CSRF-Token': token.content}}
     })
