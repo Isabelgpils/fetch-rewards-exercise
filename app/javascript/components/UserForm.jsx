@@ -96,8 +96,8 @@ export default function UserForm() {
                     className="form-control"
                     type="password"
                     id="password"
-                    minLength="6"
-                    placeholder="password must be at least 6 characters"
+                    minLength="8"
+                    placeholder="password must be at least 8 characters long"
                     required
                     name="password"
                     onChange={e => setPassword(e.target.value)}
