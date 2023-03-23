@@ -3,15 +3,14 @@ This project is part of a Frontend take-home exercise for Fetch Rewards. The use
 
 ## Exercise Requirements
 The requirement is to build a webpage with a user creation form.
-
-* The form should take the following required inputs:
+The form should take the following required inputs:
 - Full Name
 - Email
 - Password
 - Occupation
 - State
 
-* The Occupation and State Fields are populated from options returned by an endpoint. 
+The Occupation and State Fields are populated from options returned by an endpoint. 
 
 
 ### HTTP REQUESTS
