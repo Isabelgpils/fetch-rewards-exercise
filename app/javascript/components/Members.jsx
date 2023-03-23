@@ -27,7 +27,7 @@ const Members = () => {
     <main>
       <div className="jumbotron jumbotron-fluid text-center">
         <div className="container py-5">
-          <heading className="display-6">Member State Distribution and Occupation</heading>
+          <h1 className="display-6">Member State Distribution and Occupation</h1>
         </div>
       </div>
       <div className="pt-5">
