@@ -26,7 +26,7 @@ export default function UserForm() {
 
   const onSubmit = async () => {     
     const userData = {name, email, password, state, occupation}
-    // navigate("/Success")
+    navigate("/Success")
     reset();
      
     axios
@@ -38,20 +38,20 @@ export default function UserForm() {
         console.log(error.response.data)
     })
 
-    // const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
-    // const headers = axios.create({
-    //   headers: {common: {'X-CSRF-Token': token.content}}
-    // })
-    // axios
-    // .post("/api/v1/user_forms/create", userData, 
-    //   {headers: headers}
-    // )
-    // .then((response) => {
-    //   (response.data);
-    // })
-    // .catch((error)=> {
-    //   console.log(error.response.data)
-    // })
+    const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
+    const headers = axios.create({
+      headers: {common: {'X-CSRF-Token': token.content}}
+    })
+    axios
+    .post("/api/v1/user_forms/create", userData, 
+      {headers: headers}
+    )
+    .then((response) => {
+      (response.data);
+    })
+    .catch((error)=> {
+      console.log(error.response.data)
+    })
   }
   
   return(
@@ -71,7 +71,7 @@ export default function UserForm() {
                   name="name"
                   value={name}
                   required
-                  placeholder="John Doe"
+                  placeholder="First Name Last Name"
                   onChange={e => setName(e.target.value)}
                 />
               </div>
