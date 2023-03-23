@@ -15,7 +15,6 @@ export default function UserForm() {
   const {reset, handleSubmit } = useForm();
   const navigate = useNavigate();
   
-  // get request to endpoint for states and occupations
   useEffect(() => {
     axios
     .get("https://frontend-take-home.fetchrewards.com/form")
@@ -27,10 +26,9 @@ export default function UserForm() {
 
   const onSubmit = async () => {     
     const userData = {name, email, password, state, occupation}
-    navigate("/Success")
+    // navigate("/Success")
     reset();
-    
-    // post request to endpoint  
+     
     axios
     .post("https://frontend-take-home.fetchrewards.com/form", userData) 
     .then((response) => {
@@ -39,22 +37,21 @@ export default function UserForm() {
     .catch((error)=> {
         console.log(error.response.data)
     })
-    
-    // post request to rails api
-    const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
-    const headers = axios.create({
-      headers: {common: {'X-CSRF-Token': token.content}}
-    })
-    axios
-    .post("/api/v1/user_forms/create", userData, 
-      {headers: headers}
-    )
-    .then((response) => {
-      (response.data);
-    })
-    .catch((error)=> {
-      console.log(error.response.data)
-    })
+
+    // const token = document.querySelector('[name="csrf-token"]') || {content: 'no-csrf-token'}
+    // const headers = axios.create({
+    //   headers: {common: {'X-CSRF-Token': token.content}}
+    // })
+    // axios
+    // .post("/api/v1/user_forms/create", userData, 
+    //   {headers: headers}
+    // )
+    // .then((response) => {
+    //   (response.data);
+    // })
+    // .catch((error)=> {
+    //   console.log(error.response.data)
+    // })
   }
   
   return(
