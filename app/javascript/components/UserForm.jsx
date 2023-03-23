@@ -105,7 +105,7 @@ export default function UserForm() {
               </div>
 
               <div className="pt-4">
-                <label className="form-label" for="occupation">Please Select Your Occupation</label>
+                <label className="form-label" for="occupation">Occupation</label>
                   <select
                     className="form-select"
                     type="select"
@@ -113,9 +113,9 @@ export default function UserForm() {
                     value={occupation}
                     required
                     name="occupation"
-                    placeholder= "Please Select Occupation"
                     onChange={e => setOccupation(e.target.value)}
-                  >
+                  >  
+                    <option value={""} disabled>Please Select Your Occupation</option>
                     {occupations.map((occupation) => (
                       <option key={occupation} value={occupation}>
                         {occupation}
@@ -125,7 +125,7 @@ export default function UserForm() {
               </div>
               
               <div className="pt-4">
-                <label className="form-label" for="state">Please Select Your State</label>
+                <label className="form-label" for="state">State</label>
                 <select
                     className="form-select"
                     type="text"
@@ -135,8 +135,9 @@ export default function UserForm() {
                     name="state"
                     onChange={e => setState(e.target.value)}
                 >
+                  <option value={""} disabled>Please Select Your State</option>
                   {states.map((state) => (
-                    <option key={state.name} value={state.name} placeholder="Please Select State" >
+                    <option key={state.name} value={state.name} >
                       {state.name}
                     </option>
                   ))}
